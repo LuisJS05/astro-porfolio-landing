@@ -1,11 +1,150 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
+import JobTimeline from '../components/JobTimeline.astro';
+import Skill from '../components/Skill.astro';
+import Project from '../components/Project.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+interface Skill {
+    name: string;
+    iconUrl: string;
+}
+
+interface Project {
+    title: string;
+    description: string;
+    usedSkills: Skill[];
+    urlImg: string;
+    link: string;
+}
+const SKILLS: Skill[]= [
+    {
+        name: "Java",
+        iconUrl: "/public/icons/java.svg",
+    },
+    {
+        name: "React",
+        iconUrl: "/public/icons/react.png",
+    },
+    {
+        name: "MySQL",
+        iconUrl: "/public/icons/mysql.svg",
+    },
+    {
+        name: "spring Boot",
+        iconUrl: "/public/icons/spring-boot.svg",
+    },
+    {
+        name: "JavaScript",
+        iconUrl: "/public/icons/javascript.svg",
+    },
+    {
+        name: "html",
+        iconUrl: "/public/icons/html.png",
+    },
+    {
+        name: "React",
+        iconUrl: "/public/icons/react.png",
+    },
+    {
+        name: "CSS",
+        iconUrl: "/public/icons/css.svg",
+    },
+];  
+
+const PROJECTS: Project[]= [
+    {
+        title: "Back E-commerce",
+        urlImg: "/public/iconproyects/ecommerce-img.png",
+        description:
+            "API REST desarrollada con Spring Boot que implementa autenticación y autorización con JWT, ideal como base para aplicaciones seguras",
+        link: "https://github.com/LuisJS05/backecom",
+        usedSkills: [
+            {
+                name: "Java",
+                iconUrl: "/public/icons/java.svg",
+            },
+            {
+                name: "MySQL",
+                iconUrl: "/public/icons/mysql.svg",
+            },
+            {
+                name: "SpringBoot",
+                iconUrl: "/public/icons/spring-boot.svg",
+            },
+        ],
+    },
+];
+    
 ---
 
-<Layout>
-	<Welcome />
+
+<Layout title="Luis Ismael | Web Developer">
+    <header 
+    id="inicio"
+    class="h-dvh bg-[url('/fondo.webp')] bg-cover bg-center flex flex-col justify-between" >
+        <Navbar />
+        <div class="flex flex-col items-center justify-center text-center pt-40">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl border-b border-custom-white text-center pb-2 font-semibold text-white">
+                BIENVENIDO A MI PORTFOLIO
+            </h2>
+            <h3 class="text-2xl md:text-4xl lg:text-5xl text-center pb-2 font-semibold text-white">
+                Soy Desarrollador Web y me llamo
+                <span class="text-orange-500 ">Luis Ismael</span>
+            </h3>
+        </div>
+        <div class="flex justify-center items-center text-center pt-40 md:pt-60">
+            <a href="#about" class="p-4 bg-custom-purple_darker rounded-full" >
+                <img
+                 src="/Icons/arrow.png" 
+                 class="size-14 animate-bounce motion-reduce:animate-none"
+                 alt="expand-arrow--v1"/>
+            </a>    
+        </div>
+    </header>
+    <main>
+        <section
+            id="about"
+            class="flex flex-col md:flex-row gap-4 md:gap-12 bg-white border-gray-200 dark:bg-gray-900 shadow-md">
+            <article>
+                <h3 class="text-lg font-bold text-center text-white">Habilidades Profesionales</h3>
+                <span class=" text-gray-300 dark:text-gray-400">
+                    <ul class="list-disc list-inside text-gray-300 dark:text-gray-400 space-y-2 mt-4">
+                        <li>Desarrollo de APIs RESTful con Java / Spring Boot</li>
+                        <li>Implementación de autenticación y autorización con JWT y Spring Security</li>
+                        <li>Manejo de bases de datos (MySQL)</li>
+                        <li>Integración con JPA</li>
+                        <li>Conocimientos de frontend básico con HTML, CSS, JS y React</li>
+                    </ul>
+                </span>
+                <div class="flex justify-center">{SKILLS.map((skill) => <Skill skill= {skill} />)}</div>
+                <div class="flex flex-col gap-2 mt-4 text-gray-300 dark:text-gray-400">
+                    <p>Soy Desarrollador Backend en Java y Spring Boot, con experiencia en la 
+                        construcción de APIs seguras y bien estructuradas</p>
+                </div>
+            </article>
+            <article>
+                <h3 class="text-lg font-bold text-white">Experiencia</h3>
+                <JobTimeline />
+            </article>
+        </section>
+        <section 
+        id="projects" 
+        class="max-w-screen-lg mx-auto grid place-content-center gap-12">
+        <div class="flex justify-center mt-8">
+            <h3 class="w-fit border-b border-custom-purple text-xl md:text-2xl lg:text-4xl font-bold">
+                Mis Proyectos
+            </h3>
+        </div>    
+        <div class="w-full grid place-content-center gap-12">
+            {
+            PROJECTS.map((project, index) => <Project project={project} index={index} />)
+            }
+        </div>
+        </section>
+    </main>
+    <Footer/>
 </Layout>
+

@@ -1,0 +1,26 @@
+---
+import JobCard from './JobCard.astro';
+interface Job {
+    date: string;
+    title: string;
+    description: string;
+}
+const Jobs: Job [] = [
+    {
+        date: "2024-presente",
+        title: "Spring Boot JWT Authentication API ",
+        description:
+            "Desarrollé un backend seguro con Spring Boot y JWT para gestionar usuarios, roles y accesos protegidos. Implementé control de endpoints, validación de tokens y manejo de excepciones.",
+    },
+    {
+        date: "2024-presente",
+        title: "Practicante Desarrollador FullStack",
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit recusandae voluptate aperiam voluptas quae facilis deleniti sit deserunt eius culpa in, enim natus architecto accusantium inventore, at reiciendis molestiae! Ipsum!",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 ">
+    {Jobs.map((job) => <JobCard job={job} />)}
+</ol>
