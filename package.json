@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "npx tailwindcss -i ./src/styles/global.css -o ./public/css/tailwind.css --minify --watch",
+    "postbuild": "npx tailwindcss -i ./src/styles/global.css -o ./public/css/tailwind.css --minify",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.2.8",
     "@tailwindcss/cli": "^4.1.12",
     "@tailwindcss/vite": "^4.1.12",
     "astro": "^5.13.5",
