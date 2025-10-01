@@ -52,15 +52,24 @@ const SKILLS: Skill[]= [
         name: "CSS",
         iconUrl: "/public/icons/css.svg",
     },
+    {
+        name: "Boostrap",
+        iconUrl: "/public/icons/boostrap.png",
+    },
+
+    {
+        name: "IntelliJ",
+        iconUrl: "/public/icons/intellij.png",
+    },
 ];  
 
 const PROJECTS: Project[]= [
     {
-        title: "Back E-commerce",
-        urlImg: "/public/iconproyects/ecommerce-img.png",
+        title: "Autenticación y autorización de Usuario",
+        urlImg: "/public/iconproyects/AutenticacionUser.png",
         description:
             "API REST desarrollada con Spring Boot que implementa autenticación y autorización con JWT, ideal como base para aplicaciones seguras",
-        link: "https://github.com/LuisJS05/backecom",
+        link: "https://github.com/LuisJS05/Autenticacion-autorizacion-de-Usuario",
         usedSkills: [
             {
                 name: "Java",
@@ -73,6 +82,33 @@ const PROJECTS: Project[]= [
             {
                 name: "SpringBoot",
                 iconUrl: "/public/icons/spring-boot.svg",
+            },
+            
+        ],
+    },
+
+    {
+        title: "Gestión de Usuarios",
+        urlImg: "/public/iconproyects/GestionUser.png",
+        description:
+            "Aplicación web con CRUD de usuarios (crear, listar, editar, eliminar) con validaciones, vistas en Thymeleaf y conexión a base de datos MySQL usando Spring Boot",
+        link: "https://github.com/LuisJS05/springboot",
+        usedSkills: [
+            {
+                name: "Java",
+                iconUrl: "/public/icons/java.svg",
+            },
+            {
+                name: "MySQL",
+                iconUrl: "/public/icons/mysql.svg",
+            },
+            {
+                name: "SpringBoot",
+                iconUrl: "/public/icons/spring-boot.svg",
+            },
+            {
+                name: "Boostrap",
+                iconUrl: "/public/icons/boostrap.png",
             },
         ],
     },
@@ -121,7 +157,7 @@ const PROJECTS: Project[]= [
                 </span>
                 <div class="flex justify-center">{SKILLS.map((skill) => <Skill skill= {skill} />)}</div>
                 <div class="flex flex-col gap-2 mt-4 text-gray-300 dark:text-gray-400">
-                    <p>Soy Desarrollador Backend en Java y Spring Boot, con experiencia en la 
+                    <p>Soy Desarrollador Backend en Java y Spring Boot, interesado en la 
                         construcción de APIs seguras y bien estructuradas</p>
                 </div>
             </article>
